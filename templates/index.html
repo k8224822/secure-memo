@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>클라우드 보안 메모장</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- CSP(script-src 'self') 때문에 인라인 스크립트·onclick 없이 외부 파일만 사용 -->
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">클라우드 보안 메모장</div>
+    <div id="profile" class="profile" hidden>
+      <span>접속자: <span class="profile-name" id="profile-name"></span></span>
+      <span class="profile-gh">GitHub · <span id="profile-github"></span></span>
+      <button id="logout-btn" class="btn-ghost" type="button">로그아웃</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- 로그인 화면 -->
+    <section id="login-view" class="card login" hidden>
+      <h1>로그인</h1>
+      <p class="sub">사내 계정으로 로그인하세요.</p>
+      <form id="login-form" autocomplete="on">
+        <label>아이디
+          <input name="username" id="username" required maxlength="50" autocomplete="username">
+        </label>
+        <label>비밀번호
+          <input name="password" id="password" type="password" required maxlength="128" autocomplete="current-password">
+        </label>
+        <button type="submit" class="btn">로그인</button>
+        <p class="error" id="login-error" role="alert"></p>
+      </form>
+    </section>
+
+    <!-- 메모 화면 -->
+    <section id="memo-view" hidden>
+      <form id="memo-form" class="card composer">
+        <textarea id="memo-input" maxlength="2000" rows="4" placeholder="메모 내용을 입력하세요"></textarea>
+        <div class="composer-foot">
+          <span class="count"><span id="memo-count">0</span> / 2000</span>
+          <button type="submit" class="btn">메모 등록</button>
+        </div>
+        <p class="error" id="memo-error" role="alert"></p>
+      </form>
+      <ul id="memo-list" class="memo-list"></ul>
+      <p id="memo-empty" class="empty" hidden>아직 메모가 없어요.</p>
+    </section>
+  </main>
+</body>
+</html>

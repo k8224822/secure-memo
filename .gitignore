@@ -1,0 +1,31 @@
+# ── 민감 정보 (절대 커밋 금지) ──
+# 어느 폴더에 있든 .env / .env.local / prod.env 등 전부 제외, 템플릿(.env.example)만 허용
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+id_rsa*
+id_ed25519*
+secrets/
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# ── DB 덤프 / 로그 ──
+*.sql
+*.sql.gz
+*.log
+
+# ── OS / 에디터 ──
+.DS_Store
+.vscode/
+.idea/
