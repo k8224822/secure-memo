@@ -35,7 +35,7 @@ jobs:
     name: Validate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Python syntax check
         run: python3 -m py_compile app.py
@@ -58,7 +58,7 @@ jobs:
     needs: validate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # 서버가 Intel(amd64)이든 ARM(arm64, 예: Oracle Ampere)이든 그대로 돌도록 두 아키텍처로 빌드
       - name: Set up QEMU
@@ -90,7 +90,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # 서버에는 소스 없이 compose 파일과 nginx 설정만 필요.
       # source 에 .env 가 없으므로 서버의 .env 는 절대 덮어쓰지 않음 (rm: false → 기존 파일 삭제도 안 함)
